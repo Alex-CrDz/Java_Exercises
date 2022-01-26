@@ -10,6 +10,14 @@ In the main branch of the repository you will find all the code developed from a
 
 In the src package you will find other packages for each section as follows:
 
-- Challenges: here there is all the code from the weekly challenges, separated in packages for each topic.
-- Exercices: here you will find all the code from exercices of the course from Globant University, separated in packages for each topic.
-- Sessions: here are located the code from the exercices done during the weekly sessions with the instructors, also separated sin packages for each session.
+- ### Challenges: 
+  here there is all the code from the weekly challenges, separated in packages for each topic.
+- ### Exercices: 
+  here you will find all the code from exercices of the course from Globant University, separated in packages for each topic.
+- ### Sessions:
+  here are located the code from the exercices done during the weekly sessions with the instructors, also separated sin packages for each session.
+
+## Note
+
+The thesis project there's not in this repository, for the final thesis project from Globant's Java Academy look this repository:
+https://github.com/Alex-CrDz/Final_Thesis_Work
