@@ -7,3 +7,6 @@
 *.iml
 *.iws
 *.ids
+/src/Challenges/Topic_2/target/
+/src/Challenges/Topic_2/.idea/
+/src/Challenges/Topic_2/.mvn/wrapper/

@@ -1,4 +1,4 @@
-package Challenges.Topic_1.Uno_Tiena_Musica;
+package Challenges.Topic_1.Uno_Tienda_Musica;
 
 import java.awt.Color;
 
