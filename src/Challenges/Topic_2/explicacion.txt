@@ -1,0 +1,2 @@
+--- abrir el package Topic_2 como un proyecto aparte de spring para dependencias ---
+El código se desarrolló implementando interfaces tanto para la capa service como para la capa repository, permitiendo usar múltiples implementaciones de varias impresoras de forma que sea transparente para el controller, así mismo para este ejemplo se declararon las impresoras en un hashmap en el controller que permite añadir más impresoras en el futuro sin necesidad de cambiar el método post, solo tocando el método loadPrinters.

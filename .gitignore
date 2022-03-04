@@ -1,0 +1,12 @@
+# Default ignored files
+/shelf/
+/.idea/workspace.xml
+/out
+### IntelliJ Idea ###
+/.idea
+*.iml
+*.iws
+*.ids
+/src/Challenges/Topic_2/target/
+/src/Challenges/Topic_2/.idea/
+/src/Challenges/Topic_2/.mvn/wrapper/
