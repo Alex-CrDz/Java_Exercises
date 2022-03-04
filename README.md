@@ -4,7 +4,7 @@
 ## Details
 
 This is the repository where I'm going to locate all the exercises, challenges and any other thing done across the entire Java academy's course from Globant.
-In the main branch of the repository you will find all the code developed from all topics, there could be some other branches, but everything will be referenced in the main branch.
+In the main branch of the repository you will find all the code developed from all topics, there could be some other branches, but everything will be referenced in the main branch. **IMPORTANT: _all code was made using jdk java 17_**
 
 ## Package Organization
 
