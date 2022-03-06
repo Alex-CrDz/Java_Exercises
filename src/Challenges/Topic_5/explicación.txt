@@ -1,0 +1,5 @@
+El proyecto tiene documentación de los endpoints en la ruta: http://localhost:8080/swagger-ui/index.html
+Para la base de datos se usa la misma imagen del Challenge Topic 4 con algunas modificaciones (en el package del Topic_4/docker se encuentran los inserts)
+Imagen docker de la base de datos: alcardi/mydatabase-custom-image
+Imagen docker del API: alcardi/java-academy-topic-5
+Cuenta con docker-compose

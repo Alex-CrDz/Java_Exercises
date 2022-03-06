@@ -5,6 +5,8 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/src/Challenges/Topic_2/src" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Challenges/Topic_5/src" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Challenges/Topic_4/getting-started-master" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
