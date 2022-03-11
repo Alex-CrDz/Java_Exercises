@@ -1,0 +1,2 @@
+La implementación de la lógica de negocio se encuentra en las clases TransferService y OnlinePaymentService, el resto del proyecto es para simular las condiciones de una pasarela de pago con persistencia.
+Es necesario abrir el package Topic_6 como un proyecto independiente para solucionar las dependencias de spring.
