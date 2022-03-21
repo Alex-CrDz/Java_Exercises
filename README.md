@@ -13,7 +13,7 @@ In the **_src_** package you will find other packages for each section as follow
 - ### Challenges: 
   here there is all the code from the weekly challenges, separated in packages for each topic.
   
-  **(for topics 2, 5 and 6, open the package Topic_{#} as independent project, for resolve spring dependencies)**
+  **(for topics 2, 5, 6 and 7, open the package Topic_{#} as independent project, for resolve spring dependencies)**
 - ### Exercices: 
   here you will find all the code from exercices of the course from Globant University, separated in packages for each topic.
 - ### Sessions:
