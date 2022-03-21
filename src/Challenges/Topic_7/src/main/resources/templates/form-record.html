@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:insert="~{Layout/head :: head}"></div>
+    <title th:text="#{index.title}">Records</title>
+</head>
+
+<body>
+<div th:insert="~{Layout/navbar :: navbar}"></div>
+<div th:insert="~{Layout/header :: header}"></div>
+<section>
+    <div class="container">
+        <div th:if="${errMsg != null}" class="alert alert-danger mt-3" role="alert">
+            <span th:text="'ERROR: ' + ${errMsg}"></span>
+        </div>
+        <div class="row align-items-center" style="padding: 1em 0em;">
+            <div class="col">
+                <h1 th:text="#{form-record.record}">Registro</h1>
+                <form class="bootstrap-form-with-validation" th:object="${record}"
+                      th:action="${edit} ? @{/records/edit} : @{/records/new}" th:method="post">
+                    <div class="form-group mb-3">
+                        <input class="form-control visually-hidden" type="hidden"
+                               id="idWeatherInput" name="idWeatherInput" th:field="${record.idWeather}">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label" for="nameCityInput">Ciudad</label>
+                        <select class="form-select" id="nameCityInput" name="nameCityInput" autofocus required
+                                th:field="${record.location}">
+                            <option value="" selected th:text="#{form-record.nameCitySelectInput}">Seleccione una ubicación</option>
+                            <option th:each="location : ${locations}" th:value="${location.idLocation}"
+                                    th:text="${location.nameCity}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label" for="dateRecordInput" th:text="#{form-record.dateRecordInput}">Fecha</label>
+                        <input class="form-control" id="dateRecordInput" type="datetime-local" name="dateRecordInput"
+                               required th:field="${record.insertDate}">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label" for="tempArrayInputGroup" th:text="#{form-record.tempArrayInputGroup}">Temperatura (min 1)</label>
+                        <div id="tempArrayInputGroup" class="input-group">
+                            <input class="form-control" type="number"
+                                   id="tempOneInput" required
+                                   name="tempOneInput" step="0.1" th:field="${record.tempValue[0]}">
+                            <input class="form-control" type="number"
+                                   id="tempTwoInput" required
+                                   name="tempTwoInput" step="0.1" th:field="${record.tempValue[1]}">
+                            <input class="form-control" type="number"
+                                   id="tempThreeInput" required
+                                   name="tempThreeInput" step="0.1" th:field="${record.tempValue[2]}">
+                            <input class="form-control" type="number"
+                                   id="tempFourInput" required
+                                   name="tempFourInput" step="0.1" th:field="${record.tempValue[3]}">
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <button class="btn btn-primary" type="submit" th:text="#{form-record.summitButton}">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<div th:insert="~{Layout/footer :: footer}"></div>
+<div th:insert="~{Layout/scripts :: scripts}"></div>
+</body>
+
+</html>

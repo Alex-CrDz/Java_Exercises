@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:insert="~{Layout/head :: head}"></div>
+    <title th:text="#{location.title}">Location</title>
+</head>
+
+<body>
+<div th:insert="~{Layout/navbar :: navbar}"></div>
+<div th:insert="~{Layout/header :: header}"></div>
+<section>
+    <div class="container">
+        <div th:if="${errMsg != null}" class="alert alert-danger mt-3" role="alert">
+            <span th:text="'ERROR: ' + ${errMsg}"></span>
+        </div>
+        <div class="row align-items-center" style="padding: 1em 0em;">
+            <div class="col">
+                <h1 th:text="#{location.title}">Ciudad</h1>
+                <form class="bootstrap-form-with-validation" th:object="${location}"
+                      th:action="${edit} ? @{/locations/edit} : @{/locations/new}" th:method="post">
+                    <div class="form-group mb-3">
+                        <input class="form-control visually-hidden" type="text"
+                               id="idLocationInput" name="idLocationInput"
+                               th:field="${location.idLocation}">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label" for="nameCityInput" th:text="#{location.nameCity}">Nombre
+                            Ciudad</label>
+                        <input class="form-control" type="text" id="nameCityInput" name="nameCityInput"
+                               autofocus required th:placeholder="#{form-location.nameCity-placeholder}" th:field="${location.nameCity}">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label" for="nameStateInput">Nombre
+                            Estado</label>
+                        <input class="form-control" type="text" id="nameStateInput" name="nameStateInput"
+                               required th:placeholder="#{form-location.nameState-placeholder}" th:field="${location.nameState}">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label" for="latitudeInput">Latitud</label>
+                        <input class="form-control" type="text" id="latitudeInput" name="latitudeInput"
+                               required th:placeholder="#{form-location.latitude-placeholder}" th:field="${location.latitude}">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label" for="longitudeInput">Longitud</label>
+                        <input class="form-control" type="text" id="longitudeInput" name="longitudeInput"
+                               required th:placeholder="#{form-location.longitude-placeholder}" th:field="${location.longitude}">
+                    </div>
+                    <div class="form-group mb-3">
+                        <button class="btn btn-primary" type="submit" th:text="#{form-record.summitButton}">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<div th:insert="~{Layout/footer :: footer}"></div>
+<div th:insert="~{Layout/scripts :: scripts}"></div>
+</body>
+
+</html>

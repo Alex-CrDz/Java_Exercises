@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:insert="~{Layout/head :: head}"></div>
+    <title th:text="#{index.title}"></title>
+</head>
+
+<body>
+<div th:insert="~{Layout/navbar :: navbar}"></div>
+<div th:insert="~{Layout/header :: header}"></div>
+<section>
+    <div class="container">
+        <div th:if="${success}" class="alert alert-success mt-3" role="alert">
+            <span th:text="#{index.success}">Done</span>
+        </div>
+        <div th:if="${errMsg != null}" class="alert alert-danger mt-3" role="alert">
+            <span th:text="'ERROR: ' + ${errMsg}"></span>
+        </div>
+        <div class="row align-items-center" style="padding: 1em 0em;">
+            <div class="col">
+                <h1 th:text="#{navbar.history}">Historial</h1>
+                <a th:if="${addRecord}" class="btn btn-primary" role="button" th:href="${'/records/new'}">
+                    <i class="fas fa-plus-circle"
+                       style="padding: 0em 0.2em;"></i>
+                    <span th:text="#{index.add}"></span>
+                </a>
+                <a th:unless="${addRecord}" class="btn btn-primary disabled" role="button" th:href="${'/records/new'}">
+                    <i class="fas fa-plus-circle"
+                       style="padding: 0em 0.2em;"></i>
+                    <span th:text="#{index.add}"></span>
+                </a>
+                <div class="table-responsive" style="padding: 2em 1em;">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th th:text="#{index.temp}">Temperatura</th>
+                            <th th:text="#{index.city}">Ciudad</th>
+                            <th th:text="#{index.insertdate}">Fecha Medición</th>
+                            <th th:text="#{index.edit}">Editar</th>
+                            <th th:text="#{index.delete}">Eliminar</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <div th:if="${history.size() > 0}">
+                            <tr th:each="record : ${history}">
+                                <td th:text="${record.tempValue[0] + '°F - ' + record.tempValue[1] + '°F - ' + record.tempValue[2] + '°F - ' + record.tempValue[3] + '°F'}"></td>
+                                <td th:text="${record.location.nameCity}"></td>
+                                <td th:text="${record.insertDate}"></td>
+                                <td>
+                                    <a class="btn" role="button"
+                                       th:href="${'/records/edit/' + record.idWeather}">
+                                        <i class="fas fa-edit"
+                                           style="padding: 0em 0.2em;color: rgb(9, 101, 238);"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="btn" role="button"
+                                       th:href="${'/records/delete/' + record.idWeather}">
+                                        <i class="fas fa-trash"
+                                           style="padding: 0em 0.2em;color: rgb(221, 52, 69);"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </div>
+                        <div th:unless="${history.size() > 0}">
+                            <tr>
+                                <td th:text="#{index.norecords}">No Records</td>
+                            </tr>
+                        </div>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div th:insert="~{Layout/footer :: footer}"></div>
+<div th:insert="~{Layout/scripts :: scripts}"></div>
+</body>
+
+</html>

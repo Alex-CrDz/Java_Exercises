@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:insert="~{Layout/head :: head}"></div>
+    <title th:text="#{location.title}">Location</title>
+</head>
+
+<body>
+<div th:insert="~{Layout/navbar :: navbar}"></div>
+<div th:insert="~{Layout/header :: header}"></div>
+<section>
+    <div class="container">
+        <div th:if="${success}" class="alert alert-success mt-3" role="alert">
+            <span th:text="#{index.success}">Done</span>
+        </div>
+        <div th:if="${errMsg != null}" class="alert alert-danger mt-3" role="alert">
+            <span th:text="'ERROR: ' + ${errMsg}"></span>
+        </div>
+        <div class="row align-items-center" style="padding: 1em 0em;">
+            <div class="col">
+                <h1 th:text="#{location.title}">Ciudades</h1>
+                <a class="btn btn-primary" role="button" th:href="${'/locations/new'}">
+                    <i class="fas fa-plus-circle"
+                       style="padding: 0em 0.2em;"></i>
+                    <span th:text="#{index.add}"></span>
+                </a>
+                <div class="table-responsive" style="padding: 2em 1em;">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th th:text="#{location.nameCity}">Nombre Ciudad</th>
+                            <th th:text="#{location.nameState}">Nombre Estado</th>
+                            <th th:text="#{location.coordinates}">Coordenadas</th>
+                            <th th:text="#{location.edit}">Editar</th>
+                            <th th:text="#{location.delete}">Eliminar</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <div th:if="${locations.size() > 0}">
+                            <tr th:each="location : ${locations}">
+                                <td th:text="${location.nameCity}"></td>
+                                <td th:text="${location.nameState}"></td>
+                                <td th:text="${location.latitude + ' | ' + location.longitude}"></td>
+                                <td>
+                                    <a class="btn" role="button" th:href="${'/locations/edit/' + location.idLocation}">
+                                        <i class="fas fa-edit"
+                                           style="padding: 0em 0.2em;color: rgb(9,101,238);"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="btn" role="button"
+                                       th:href="${'/locations/delete/' + location.idLocation}">
+                                        <i class="fas fa-trash"
+                                           style="padding: 0em 0.2em;color: rgb(221, 52, 69);"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </div>
+                        <div th:unless="${locations.size() > 0}">
+                            <tr>
+                                <td th:text="#{index.norecords}">Sin registros</td>
+                            </tr>
+                        </div>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div th:insert="~{Layout/footer :: footer}"></div>
+<div th:insert="~{Layout/scripts :: scripts}"></div>
+</body>
+
+</html>
